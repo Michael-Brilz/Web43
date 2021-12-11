@@ -1,0 +1,134 @@
+<? php include "db_conn.php";
+session_start();
+if (!isset($_SESSION["username"])) {
+  header("Location: login.php");
+  exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web43</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<html>
+<script src="script.js">
+</script>
+<body class="body-invoice">
+  <!--Navigation section -->
+  <div>
+    <header>
+      <nav>
+        <div class="logo"></div>
+        <ul id="navi">
+          <li><a class="hover" href="index.html">Startseite</a></li>
+          <li><a class="hover" href="speisekarte.html">Speisekarte</a></li>
+          <li><a class="hover" href="bestellen.php">Bestellen</a></li>
+          <li><a class="hover" href="logout.php">Abmelden</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <!--Navigation section ende -->
+
+  <!--Social Meida section -->
+  <div class="icon-bar">
+    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="google"><i class="fa fa-google"></i></a>
+    <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+  </div>
+  <!--Social Meida section ende-->
+
+  <!--Abfrage für die Tabelle types-->
+  <?php
+  $type_query = "SELECT * FROM types";
+  $type_query_run = mysqli_query($conn, $type_query);
+  ?>
+  <!--Abfrage für die Tabelle types ende-->
+
+  <!--Content bereich für die Zutaten aus der Datenbank-->
+  <div class="container-md container-order ">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+      </div>
+      <div class="col-md-auto">
+        <div class="card table" style="width: 30rem;">
+          <table class="table table-bordered">
+            <tbody>
+              <?php
+              foreach ($type_query_run as $extraList) {       // Foreach Schleife um alle Zuaten aus der Tabelle zu holen und in einer Tabelle auszugeben.
+                $imageURL = 'upload/' . $extraList['File_Name']; ?>
+
+                <tr>
+                  <td>
+                    <img src="<?php echo $imageURL; ?>" style="width: 110px; height:110px;" class="card-img-top" alt="">
+                  </td>
+                  <td>
+                    <h5><?php echo $extraList['Name']; ?></h5>
+                  </td>
+                  <td>
+                    <h5><?php echo $extraList['Preis']; ?></h5>
+                  </td>
+                  <td>
+                    <button data-name="<?php echo $extraList['Name'] ?>" data-price="<?php echo $extraList['Preis'] ?>" onclick="pushIntoArray(this)" class="btn btn-primary">Hinzufügen</button>
+                  </td>
+                </tr>
+              <?php  } ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--Content bereich für die Zutaten ende-->
+
+      <!--Content bereich für die Bestellung-->
+      <div class="col col-lg-2">
+        <div class="card rechnung" style="width: 30rem;">
+          <h2>Bestellung</h2>
+          <ul class="list-group list-group-flush">
+          </ul>
+          <div class="container delivery-content">
+            <div class="row ">
+              <div class="col-6">
+                <p>Extras:</p>
+                <ul class="list-group">
+                  <li id="extralist" class="list-group-item"></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <p>Preis:</p>
+                <ul class="list-group">
+                  <li id="pricelist" class="list-group-item"></li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group extra-request">
+              <label for="exampleFormControlTextarea1">Zusätzlich noch Wünsche?</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <table class="table table-striped section-gesamt">
+              <button onclick="deleteArr()" type="button" class="btn btn-primary">Liste Löschen</button>
+              <tr class="table-secondary">
+                <td>
+                  <h3 class="gesamt-font">Gesamtpreis:</h3>
+                </td>
+                <td>
+                  <h4 class="gesamt-font" id="gesamtpreis">0.00 Euro</h4>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <button onclick="invoice(); saveExtraRequest()" type="button" class="btn btn-primary">Weiter</button>
+        </div>
+      </div>
+    </div>
+    <!--Content bereich für die Bestellung ende-->
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+body  {
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin:0;
+  }
+nav {
+    text-align:center;
+    margin-top: 80px;
+   }
+   
+   nav li {
+    display:inline-block;
+    color:#fff;
+    margin-left:-3px; 
+   }
+   nav a {
+    display:block;
+    padding:10px;
+    color:#fff;
+    font-size: 27px;
+    text-decoration: none;
+    font-weight: bold;
+
+   }
+    .hover:hover {
+    color:#9c0404;
+  
+   }
+   .logo{
+    background-image: url(img/brand.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 30px;
+    left: 230px;
+    
+  }
+
+  /* Social Media Buttons*/
+  .icon-bar {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .icon-bar a:hover {
+    background-color: rgb(241, 241, 241);
+  }
+  
+  .facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .google {
+    background: #dd4b39;
+    color: white;
+  }
+  
+  .linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  .youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .content {
+    margin-left: 75px;
+    font-size: 30px;
+  }
+
+  /*Slogan*/
+  .slogan{
+      margin-top: 200px;
+      
+  }
+  .slogan-text{
+    text-align:center;
+    font-size: 55px;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: 'Indie Flower', cursive;
+  }
+
+  /*Speisekarte*/
+  .speisekarte-section{
+    margin-top: 100px;
+  }
+  .speisecard{
+
+    height: 450px;
+  }
+
+  /*Bestell Seite*/
+  .extra-request{
+    margin-top: 25px;
+  }
+.show-items{
+  margin-top: 100px;
+
+}
+.order-section{
+  margin-left: 20px;
+}
+.gesamt {
+margin-top: 20px;
+ margin-bottom: 50px;
+ background-color: blue;
+ 
+}
+.section-gesamt{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.gesamt-font{
+  font-size: 30px;
+  
+}
+.rechnung h2{
+  text-align: center;
+}
+.rechnung p{
+  font-size: 20px;
+  margin-bottom: -3px;
+}
+.table td {
+  text-align: center;   
+}
+
+table td {
+  vertical-align: top;
+}
+
+
+
+/* -------------------------------------
+  LOGIN
+------------------------------------- */
+.login-container{
+  margin-top: 200px;
+  
+}
+.login-form{
+text-align:center;
+font-size: 30px;
+font-weight: bold;
+color: #9c0404;
+font-family: 'Indie Flower', cursive;
+}
+
+.inputfield{
+  margin: 12px;
+}
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
+  padding: 20px;
+}
+
+/* -------------------------------------
+  HEADER, FOOTER, MAIN
+------------------------------------- */
+.main {
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  border-radius: 3px;
+}
+
+.content-wrap {
+  padding: 20px;
+}
+
+.content-block {
+  padding: 0 0 20px;
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+/* -------------------------------------
+Position der Texte in der Rechnung
+------------------------------------- */
+.last {
+  margin-bottom: 0;
+}
+.first {
+  margin-top: 0;
+}
+.aligncenter {
+  text-align: center;
+}
+.alignright {
+  text-align: right;
+}
+.alignleft {
+  text-align: left;
+}
+.clear {
+  clear: both;
+}
+
+/* -------------------------------------
+  Rechnung
+  Style für die Tabelle
+------------------------------------- */
+.invoice {
+  margin: 40px auto;
+  text-align: left;
+  width: 80%;
+}
+.invoice td {
+  padding: 5px 0;
+  font-size: 20px;
+}
+.total-small td{
+  font-size: 15px;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+
+}
+.total-big td{
+  font-size: 25px;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+
+}
+.invoice-small{
+  width: 100%;
+  margin-top: 20px;
+
+}
+.invoice .invoice-items {
+  width: 100%;
+  margin-top: 40px;
+}
+.invoice .invoice-items td {
+  border-top: #eee 1px solid;
+}
+.invoice .invoice-items .total td {
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  font-weight: 700;
+}
+
+
+
